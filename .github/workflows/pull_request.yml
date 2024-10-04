@@ -2,12 +2,7 @@ name: Package the pull requests
 
 on:
   pull_request:
-    branches:
-      - master
-      - dev
-      - release/*
-      - hotfix/*
-      - feature/*
+    types: [opened, reopened, synchronize]
 
 jobs:
   build:
