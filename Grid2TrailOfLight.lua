@@ -40,7 +40,7 @@ local function IsToLTalented()
     if configInfo == nil then return end
 	
 	-- Check holy is current spec
-	if configInfo.name ~= "Holy" then return end	
+	if GetSpecialization() ~= 2 then return end	
 
 	-- Check the ToL talent tree node and if it is active
 	local nodeInfo = C_Traits.GetNodeInfo(configID, ToLNodeID)
@@ -61,15 +61,15 @@ function TrailOfLight:OnEnable()
   TrailOfLightSelected = IsToLTalented()
 
   self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-  self:RegisterEvent("PLAYER_TALENT_UPDATE")
+  self:RegisterEvent("TRAIT_CONFIG_UPDATED")
 end
 
 function TrailOfLight:OnDisable()
   self:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-  self:UnregisterEvent("PLAYER_TALENT_UPDATE")
+  self:UnregisterEvent("TRAIT_CONFIG_UPDATED")
 end
 
-function TrailOfLight:PLAYER_TALENT_UPDATE()
+function TrailOfLight:TRAIT_CONFIG_UPDATED()
   TrailOfLightSelected = IsToLTalented()
   
   TrailOfLight:UpdateAllUnits()
@@ -130,15 +130,15 @@ function LastTarget:OnEnable()
   LastTargetSelected = IsToLTalented()
 
   self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-  self:RegisterEvent("PLAYER_TALENT_UPDATE")
+  self:RegisterEvent("TRAIT_CONFIG_UPDATED")
 end
 
 function LastTarget:OnDisable()
   self:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-  self:UnregisterEvent("PLAYER_TALENT_UPDATE")
+  self:UnregisterEvent("TRAIT_CONFIG_UPDATED")
 end
 
-function LastTarget:PLAYER_TALENT_UPDATE()
+function LastTarget:TRAIT_CONFIG_UPDATED()
   LastTargetSelected = IsToLTalented()
   
   LastTarget:UpdateAllUnits()
