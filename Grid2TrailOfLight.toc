@@ -1,9 +1,8 @@
-## Interface: 70100
+## Interface: 110000, 110002
 ## Title: Grid2 |cd1ff7d0aTrailOfLight|r
 ## Notes: Add a Trail of Light (holy priest talent) status.
 ## Version:  @project-version@
 ## Author: Skamer
-## Version: 1.2
 ## Dependencies: Grid2
 
 ## X-Curse-Project-ID: 101865
