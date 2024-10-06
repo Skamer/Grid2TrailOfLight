@@ -111,12 +111,12 @@ Grid2:DbSetStatusDefaultValue("trail-of-light", {type = "trail-of-light",  color
 
 -------------------------------------------------------------------------------------------
 -- Add the last Heal/Flash Heal target status
-local LastTarget = Grid2.statusPrototype:new("last-target")
+local LastTarget = Grid2.statusPrototype:new("tol-last-heal")
 
 -- data
 local HealSpellID = 2060
 
-local LastTargetName = "Last Heal Target"
+local LastTargetName = "Trail of Light: Last Heal Target"
 local LastTargetIcon,_ = C_Spell.GetSpellTexture(HealSpellID)
 
 --
@@ -172,14 +172,14 @@ local function CreateStatusLastTarget(baseKey, dbx)
 	return LastTarget
 end
 
-Grid2.setupFunc["last-target"] = CreateStatusLastTarget
+Grid2.setupFunc["tol-last-heal"] = CreateStatusLastTarget
 
-Grid2:DbSetStatusDefaultValue("last-target", {type = "last-target",  color1= {r=0,g=0,b=1,a=1} } )
+Grid2:DbSetStatusDefaultValue("tol-last-heal", {type = "tol-last-heal",  color1= {r=0,g=0,b=1,a=1} } )
 
 -- Hook to set the option properties
 local PrevLoadOptions = Grid2.LoadOptions
 function Grid2:LoadOptions()
   PrevLoadOptions(self)
-  Grid2Options:RegisterStatusOptions("last-target", "buff", nil, {title=LastTargetName, titleIcon = LastTargetIcon, titleDesc="The last target of Heal or Flash Heal."})
+  Grid2Options:RegisterStatusOptions("tol-last-heal", "buff", nil, {title=LastTargetName, titleIcon = LastTargetIcon, titleDesc="The last target of Heal or Flash Heal for Trail of Light."})
   Grid2Options:RegisterStatusOptions("trail-of-light", "buff", nil, {title=TrailOfLightName, titleIcon = TrailOfLightIcon, titleDesc=GetSpellDescription(TrailOfLightSpellID)})
 end
