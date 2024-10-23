@@ -1,4 +1,10 @@
-# 1.3.0
+# 1.3.1
+
+- Bumped the toc version for 11.0.5
+
+---
+
+## 1.3.0
 
 - Updated for TWW (thanks to [Finarf](https://github.com/Finarf) for its pull request).
 
