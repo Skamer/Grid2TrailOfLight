@@ -1,4 +1,4 @@
-## Interface: 110105
+## Interface: 110107
 ## Title: Grid2 |cd1ff7d0aTrailOfLight|r
 ## Notes: Add a Trail of Light (holy priest talent) status.
 ## Version:  @project-version@
